@@ -109,15 +109,16 @@ Chạy `ChunkingStrategyComparator().compare()` trên tài liệu đầu tiên (
 | Tôi (Thanh Điệp) | Recursive Character Splitting (600) | 7.0/10 | Ngắt đoạn tự nhiên theo `\n\n` hoặc câu, giữ cấu trúc bài báo tốt. | Không tự gộp các đoạn quá ngắn, dễ bị ngắt rời từ khóa kiểm thử (như câu 4). |
 | Đỗ Minh Phúc | Semantic Chunking | 9.0/10 | Chia chunk dựa trên ranh giới ngữ nghĩa của các câu liên tiếp, giữ trọn vẹn ngữ cảnh. | Chi phí tính toán embedding khi phân chia chunk lớn và phức tạp. |
 | Phí Đình Mạnh | Document-structure Chunking | 7.0/10 | Phân chia theo cấu trúc phân tầng (đề mục, Markdown) tự nhiên. | Kém hiệu quả trên tài liệu phẳng ít cấu trúc (như bảng tin tức csv). |
-| Lê Anh Minh | Hybrid Search (Dense Semantic + Sparse BM25) | 10.0/10 (Recall@3: 100%) | Giải pháp vượt trội nhất nhóm: Tận dụng cả sức mạnh ngữ nghĩa sâu của Vector Search và độ chính xác tuyệt đối của so khớp từ khóa (BM25). Đạt Recall@3 = 100% và MRR = 1.000 hoàn hảo. | Cấu hình và điều chỉnh trọng số (hybrid weights) yêu cầu tối ưu hóa thêm, nhưng hoàn toàn xứng đáng với hiệu quả thu về. |
+| Lê Thanh Minh | Hybrid Search (Semantic + Keyword) | 10.0/10 (Recall@3: 100%) | Giải pháp vượt trội nhất nhóm: Tận dụng cả sức mạnh ngữ nghĩa của Vector Search và độ chính xác của tìm kiếm từ khóa. Đạt Recall@3 = 100% và MRR = 1.000 hoàn hảo. | Cấu hình và điều chỉnh trọng số (hybrid weights) yêu cầu tối ưu hóa thêm, nhưng hoàn toàn xứng đáng với hiệu quả thu về. |
 
 **Strategy nào tốt nhất cho domain này? Tại sao?**
-> Phương pháp **Hybrid Search (Dense Semantic + Sparse Keyword)** kết hợp với chiến thuật chia chunk hợp lý của thành viên **Lê Thanh Minh** chính là phương án tối ưu và hiệu quả nhất cho domain Tin tức Kinh tế - Tài chính. 
+> Phương pháp **Hybrid Search (Semantic + Keyword)** kết hợp với chiến thuật chia chunk hợp lý của thành viên **Lê Thanh Minh** chính là phương án tối ưu và hiệu quả nhất cho domain Tin tức Kinh tế - Tài chính. 
 > 
 > Lý do:
-> 1. **Đáp ứng đặc thù dữ liệu tài chính:** Tin tức kinh tế chứa rất nhiều con số, tên riêng doanh nghiệp (như VGC, MBV, Đăk Re) và thuật ngữ chuyên ngành. Tìm kiếm ngữ nghĩa thuần túy đôi khi bị loãng, nhưng BM25 giúp ghim chặt và định vị chính xác các thực thể này.
-> 2. **Bù trừ khuyết điểm lẫn nhau:** Tận dụng cả khả năng hiểu câu hỏi linh hoạt (Semantic) và độ chính xác từ khóa tuyệt đối (Keyword), tránh bỏ sót thông tin quan trọng.
+> 1. **Đáp ứng đặc thù dữ liệu tài chính:** Tin tức kinh tế chứa rất nhiều con số, tên riêng doanh nghiệp (như VGC, MBV, Đăk Re) và thuật ngữ chuyên ngành. Tìm kiếm ngữ nghĩa thuần túy đôi khi bị loãng, nhưng phần tìm kiếm từ khóa giúp ghim chặt và định vị chính xác các thực thể này.
+> 2. **Bù trừ khuyết điểm lẫn nhau:** Tận dụng cả khả năng hiểu câu hỏi linh hoạt (Semantic) và độ chính xác từ khóa (Keyword), tránh bỏ sót thông tin quan trọng.
 > 3. **Minh chứng bằng số liệu thực tế:** Đây là chiến lược duy nhất trong nhóm đạt độ chính xác tuyệt đối **10/10** (Recall@3 = 100% và MRR = 1.000), khẳng định hiệu năng vượt trội trong ứng dụng thực tế.
+
 
 
 ## 4. My Approach — Cá nhân (10 điểm)
@@ -271,7 +272,7 @@ Từ 3 trường hợp thất bại (FAILED ❌) ở trên, chúng ta rút ra c�
 ### Bài học kinh nghiệm
 
 **Điều hay nhất tôi học được từ thành viên khác trong nhóm:**
-> Tôi học hỏi được rất nhiều từ giải pháp **Hybrid Search (Semantic + BM25)** của bạn **Lê Thanh Minh**. Việc kết hợp tìm kiếm ngữ nghĩa sâu (vector search) cùng khả năng lọc từ khóa chính xác (keyword search) không chỉ giải quyết triệt để vấn đề truy tìm các thực thể, con số kinh tế đặc thù mà còn giúp tối ưu hóa Recall@3 đạt mức tuyệt đối 100% trong thực tế. Đây là bài học đắt giá về việc phối hợp linh hoạt các công nghệ thay vì phụ thuộc vào một phương thức đơn lẻ.
+> Tôi học hỏi được rất nhiều từ giải pháp **Hybrid Search (Semantic + Keyword)** của bạn **Lê Thanh Minh**. Việc kết hợp tìm kiếm ngữ nghĩa sâu (vector search) cùng khả năng lọc từ khóa chính xác (keyword search) không chỉ giải quyết triệt để vấn đề truy tìm các thực thể, con số kinh tế đặc thù mà còn giúp tối ưu hóa Recall@3 đạt mức tuyệt đối 100% trong thực tế. Đây là bài học đắt giá về việc phối hợp linh hoạt các công nghệ thay vì phụ thuộc vào một phương thức đơn lẻ.
 
 **Điều hay nhất tôi học được từ nhóm khác (qua demo):**
 > Nhóm bạn đã trình bày giải pháp tự động sinh và đánh giá câu hỏi benchmark bằng LLM (LLM-as-a-judge), điều này giúp tiết kiệm rất nhiều công sức so với việc nhóm tự biên soạn và đánh giá kết quả thủ công.
