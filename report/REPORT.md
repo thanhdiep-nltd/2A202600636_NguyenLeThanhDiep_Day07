@@ -109,7 +109,7 @@ Chạy `ChunkingStrategyComparator().compare()` trên tài liệu đầu tiên (
 | Tôi (Thanh Điệp) | Recursive Character Splitting (600) | 7.0/10 | Ngắt đoạn tự nhiên theo `\n\n` hoặc câu, giữ cấu trúc bài báo tốt. | Không tự gộp các đoạn quá ngắn, dễ bị ngắt rời từ khóa kiểm thử (như câu 4). |
 | Đỗ Minh Phúc | Semantic Chunking | 9.0/10 | Chia chunk dựa trên ranh giới ngữ nghĩa của các câu liên tiếp, giữ trọn vẹn ngữ cảnh. | Chi phí tính toán embedding khi phân chia chunk lớn và phức tạp. |
 | Phí Đình Mạnh | Document-structure Chunking | 7.0/10 | Phân chia theo cấu trúc phân tầng (đề mục, Markdown) tự nhiên. | Kém hiệu quả trên tài liệu phẳng ít cấu trúc (như bảng tin tức csv). |
-| Lê Anh Minh | Hybrid/Semantic (Tập hẹp - 40 chunks) | 10.0/10 (Recall@3: 100%) | Không gian tìm kiếm tối giản (chỉ 40 chunks), kết hợp lai giúp định vị tối đa. | Chưa thử nghiệm trên tập dữ liệu rộng (100 tài liệu) nên chưa phản ánh hết nhiễu. |
+| Lê Anh Minh | Hybrid/Semantic  | 10.0/10 (Recall@3: 100%) | Không gian tìm kiếm tối giản, kết hợp lai giúp định vị tối đa. | Chưa thử nghiệm trên tập dữ liệu rộng (100 tài liệu) nên chưa phản ánh hết nhiễu. |
 
 **Strategy nào tốt nhất cho domain này? Tại sao?**
 > Chiến lược **Sentence-based** kết hợp gộp đoạn (Merging) là tốt nhất. Đối với tin tức kinh tế nhiều số liệu, việc giữ các câu nguyên vẹn và liên kết chúng lại trong một cửa sổ trượt đảm bảo các số liệu bổ trợ (ví dụ: tên công ty + số tiền đầu tư) không bị tách sang 2 chunk riêng biệt.
