@@ -24,7 +24,7 @@
 - Tại sao khác: Hai câu nói về hai lĩnh vực khác nhau, nên similarity sẽ rất thấp
 
 **Tại sao cosine similarity được ưu tiên hơn Euclidean distance cho text embeddings?**
-> Euclidean distance đo khoảng cách thẳng giữa hai điểm cuối vector nên cực kỳ nhạy cảm với độ dài văn bản (văn bản dài chứa nhiều từ hơn sẽ có độ dài vector lớn hơn, kéo chúng ra xa nhau). Trái lại, Cosine similarity chỉ đo góc giữa hai vector (hướng ngữ nghĩa), loại bỏ hoàn toàn yếu tố độ dài văn bản, giúp so sánh công bằng giữa đoạn văn ngắn và bài viết dài.
+> Euclidean distance đo khoảng cách thẳng giữa hai điểm cuối vector nên cực kỳ nhạy cảm với độ dài văn bản (văn bản dài chứa nhiều từ hơn sẽ có độ dài vector lớn hơn, kéo chúng ra xa nhau). Trái lại, Cosine similarity chỉ đo góc giữa hai vector (hướng ngữ nghĩa), loại bỏ yếu tố độ dài văn bản, giúp so sánh công bằng giữa đoạn văn ngắn và bài viết dài.
 
 ### Chunking Math (Ex 1.2)
 
@@ -48,10 +48,10 @@
 
 ### Domain & Lý Do Chọn
 
-**Domain:** Tin tức Kinh tế - Tài chính Việt Nam (VnEconomy & Báo Đầu tư).
+**Domain:** Tin tức Kinh tế - Tài chính Việt Nam.
 
 **Tại sao nhóm chọn domain này?**
-> Tài liệu tin tức kinh tế chứa lượng thông tin số liệu dày đặc (phần trăm biến động, lượng tiền đầu tư, mốc thời gian và các luật định) rất nhạy cảm với độ chính xác. Đây là môi trường hoàn hảo để thử nghiệm khả năng định vị thông tin chuẩn xác của các chiến lược RAG, đồng thời đánh giá hiệu quả lọc dữ liệu dựa trên metadata như thể loại bài báo hay thời gian phát hành.
+`> Tài liệu tin tức kinh tế chứa lượng thông tin số liệu dày đặc (phần trăm biến động, lượng tiền đầu tư, mốc thời gian và các luật định) rất nhạy cảm với độ chính xác. Đây là môi trường hoàn hảo để thử nghiệm khả năng định vị thông tin chuẩn xác của các chiến lược RAG, đồng thời đánh giá hiệu quả lọc dữ liệu dựa trên metadata như thể loại bài báo hay thời gian phát hành.
 
 ### Data Inventory
 
