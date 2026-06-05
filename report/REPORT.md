@@ -112,7 +112,7 @@ Chạy `ChunkingStrategyComparator().compare()` trên tài liệu đầu tiên (
 | Lê Anh Minh | Hybrid Search (Dense Semantic + Sparse BM25) | 10.0/10 (Recall@3: 100%) | Giải pháp vượt trội nhất nhóm: Tận dụng cả sức mạnh ngữ nghĩa sâu của Vector Search và độ chính xác tuyệt đối của so khớp từ khóa (BM25). Đạt Recall@3 = 100% và MRR = 1.000 hoàn hảo. | Cấu hình và điều chỉnh trọng số (hybrid weights) yêu cầu tối ưu hóa thêm, nhưng hoàn toàn xứng đáng với hiệu quả thu về. |
 
 **Strategy nào tốt nhất cho domain này? Tại sao?**
-> Phương pháp **Hybrid Search (Dense Semantic + Sparse Keyword)** kết hợp với chiến thuật chia chunk hợp lý của thành viên **Lê Anh Minh** chính là phương án tối ưu và hiệu quả nhất cho domain Tin tức Kinh tế - Tài chính. 
+> Phương pháp **Hybrid Search (Dense Semantic + Sparse Keyword)** kết hợp với chiến thuật chia chunk hợp lý của thành viên **Lê Thanh Minh** chính là phương án tối ưu và hiệu quả nhất cho domain Tin tức Kinh tế - Tài chính. 
 > 
 > Lý do:
 > 1. **Đáp ứng đặc thù dữ liệu tài chính:** Tin tức kinh tế chứa rất nhiều con số, tên riêng doanh nghiệp (như VGC, MBV, Đăk Re) và thuật ngữ chuyên ngành. Tìm kiếm ngữ nghĩa thuần túy đôi khi bị loãng, nhưng BM25 giúp ghim chặt và định vị chính xác các thực thể này.
