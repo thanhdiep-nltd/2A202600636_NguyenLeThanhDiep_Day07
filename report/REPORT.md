@@ -194,14 +194,14 @@ tests/test_solution.py::TestEmbeddingStoreDeleteDocument::test_delete_returns_tr
 
 | Pair | Sentence A | Sentence B | Dự đoán | Actual Score | Đúng? |
 |------|-----------|-----------|---------|--------------|-------|
-| 1 | Thị trường chứng khoán hôm nay đỏ sàn. | Chỉ số VN-Index bốc hơi hơn 15 điểm vào phiên chiều. | High | 0.7866 | Đúng |
-| 2 | Panasonic mở nhà máy sản xuất quạt trần tại Bình Dương. | Hãng điện tử Nhật Bản xây dựng cơ sở sản xuất thiết bị IAQ. | High | 0.7205 | Đúng |
-| 3 | Bộ Tài chính lấy ý kiến về ưu đãi thuế thu nhập doanh nghiệp. | Dự thảo điều chỉnh mức giảm thuế thu nhập cho các tổ chức kinh tế. | High | 0.8115 | Đúng |
-| 4 | Học máy sử dụng dữ liệu để cải thiện thuật toán. | Thời tiết hôm nay mát mẻ và có gió nhẹ. | Low | 0.1240 | Đúng |
-| 5 | Ngành hàng không có dấu hiệu phục hồi tích cực sau dịch. | Tàu bay Vietnam Airlines tăng thêm tần suất đi Seoul. | High | 0.6890 | Đúng |
+| 1 | Cổ phiếu VGC đóng cửa ở mốc 16.000 đồng/cổ phần, tăng 2,5% so với giá tham chiếu. | Viglacera chốt phiên chào sàn HNX với giá đóng cửa đạt 16.000 đồng, tăng nhẹ so với ban đầu. | High | 0.6302 | Đúng |
+| 2 | Khánh Hòa rà soát tiến độ 29 dự án, phát hiện 13 dự án đang tạm dừng triển khai do vướng mắc quy hoạch. | Tỉnh Khánh Hòa tiến hành kiểm tra hàng loạt công trình và phát hiện nhiều dự án bất động sản bị ngưng trệ vì lý do quy hoạch. | High | 0.5976 | Đúng |
+| 3 | Goldman Sachs dự báo giá vàng năm 2021 sẽ đạt mức 2.300 USD/ounce. | Ngân hàng đầu tư Mỹ dự kiến kim loại quý sẽ chạm ngưỡng 2.300 USD mỗi ounce trong năm tới. | High | 0.6743 | Đúng |
+| 4 | Bộ Công an hỗ trợ các doanh nghiệp viễn thông xác thực thông tin thuê bao nhằm giải quyết dứt điểm SIM rác. | Sự cố lũ quét gây ảnh hưởng nghiêm trọng đến tiến độ thi công đường hầm của nhà máy thủy điện Đăk Re. | Low | 0.3209 | Đúng |
+| 5 | Lắp camera giám sát giúp nâng cao hiệu quả quản lý hành trình và bảo đảm trật tự an toàn giao thông. | Việc gắn thiết bị ghi hình trên xe khách, xe tải hỗ trợ đắc lực cho công tác quản lý và giám sát tài xế. | High | 0.6189 | Đúng |
 
 **Kết quả nào bất ngờ nhất? Điều này nói gì về cách embeddings biểu diễn nghĩa?**
-> Kết quả bất ngờ nhất là Cặp số 2 đạt điểm số khá cao (~0.72) mặc dù từ vựng phân bổ giữa hai câu rất khác nhau (một câu ghi "quạt trần tại Bình Dương", câu kia ghi "thiết bị IAQ"). Điều này chứng tỏ embeddings biểu diễn nghĩa ở cấp độ khái niệm (concept) và ngữ cảnh chứ không đơn thuần chỉ là so khớp từ khóa (keyword matching).
+> Kết quả bất ngờ nhất là ở Cặp số 3 đạt điểm tương đồng khá cao (~0.67) mặc dù từ vựng được sử dụng khác nhau đáng kể (một bên dùng "Goldman Sachs", "giá vàng năm 2021", bên kia dùng "Ngân hàng đầu tư Mỹ", "kim loại quý", "năm tới"). Ngược lại, Cặp số 4 có điểm tương đồng rất thấp (~0.32) do thảo luận hai chủ đề hoàn toàn độc lập (SIM rác của Bộ TT&TT và sự cố lũ quét thủy điện). Điều này chứng minh embeddings biểu diễn nghĩa ở cấp độ khái niệm (concept) và ngữ cảnh chứ không đơn thuần chỉ là so khớp từ khóa (keyword matching).
 
 ---
 
