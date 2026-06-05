@@ -1,0 +1,91 @@
+STT | Query (Câu hỏi)             | Top-1 … | Agent Answer (Câu trả lời …
+
+  -----|-----------------------------|---------|-----------------------------
+
+   Q1  | Cổ phiếu VGC của Viglacera  | 0.5813  | Cổ phiếu VGC của Viglacera
+
+       | niêm yết trên sàn giao dịch |         | niêm yết trên sàn UpCOM.
+
+       | nào?                        |         |
+
+   Q2  | Tỉnh Khánh Hòa rà soát lại  | 0.6909  | Khánh Hòa rà soát tiến độ
+
+       | tiền thực hiện các dự án    |         | các dự án trên địa bàn
+
+       | nào?                        |         | tỉnh. → không nêu tên cụ
+
+        |                            |          | thể.
+
+   Q3  | Goldman Sachs dự báo giá    | 0.6718  | Goldman Sachs dự báo giá
+
+       | vàng đạt bao nhiêu USD mỗi  |         | vàng 2.300 USD/mỗi ounce.
+
+       | ounce?                      |         |
+
+   Q4  | Lợi ích của việc lắp camera | 0.6785  | Lợi ích → giám sát lái xe
+
+       | giám sát trên xe kinh doanh |         | (nghe điện thoại, mất tập
+
+       | vận tải là gì?              |         | trung) → tránh hành vi gây
+
+       |                             |         | mất an toàn giao thông.
+
+   Q5  | Đường cao tốc nào được      | 0.7489  | Không biết. Context không
+
+       | khánh thành kỷ niệm ngày    |         | cung cấp thông tin về đường
+
+       | truyền thống GTVT?          |         | cao tốc nào được khánh
+
+       |                             |         | thành kỷ niệm ngày truyền
+
+       |                             |         | thống GTVT.
+
+   Q6  | Giá trị giao dịch bất động  | 0.7223  | Context không cung cấp số
+
+       | sản khu vực châu Thái Bình  |         | liệu tổng giá trị giao dịch
+
+       | Dương là bao nhiêu tỷ USD?  |         | bất động sản khu vực châu
+
+       |                             |         | Thái Bình Dương.
+
+   Q7  | MBV ra mắt dịch vụ hay sản  | 0.6641  | 1. 101 điểm giao dịch →
+
+       | phẩm mới nào cho khách      |         | đồng loạt thay đổi/mới
+
+       | hàng?                       |         | mẻ.2. Ứng dụng ngân hàng
+
+       |                             |         | MBV → dành cá nhân/doanh
+
+       |                             |         | nghiệp/vượt trội.3. Website
+
+       |                             |         | MBV → giao diện mới/thân
+
+       |                             |         | thiện/trực tuyến mượt mà.
+
+   Q8  | Thị trường bất động sản Hà  | 0.7718  | Phân khúc biệt thự tại Hà
+
+       | Nội phân khúc nào đang nóng |         | Nội đang nóng nhất.
+
+       | nhất?                       |         |
+
+   Q9  | Lũ quét gây sự cố trên công | 0.7378  | Không biết. Context không
+
+       | trình thủy điện xanh tại    |         | đề cập tỉnh cụ thể.
+
+       | tỉnh nào?                   |         |
+
+   Q10 | Bộ Thông tin truyền thông   | 0.8365  | Bộ Thông tin truyền thông
+
+       | đề xuất giải pháp nào để    |         | được giao xác thực thông
+
+       | giải quyết tình trạng SIM   |         | tin thuê bao qua kết nối
+
+       | rác?                        |         | với Cơ sở dữ liệu quốc gia
+
+       |                             |         | về dân cư. [Context không
+
+       |                             |         | nêu giải pháp cụ thể khác
+
+       |                             |         | được Bộ đề xuất.]
+
+  ──────

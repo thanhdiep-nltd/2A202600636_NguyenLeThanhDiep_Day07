@@ -10,34 +10,42 @@ from src.embeddings import OpenAIEmbedder
 # Nạp các biến môi trường từ file .env
 load_dotenv(override=False)
 
-# 1. Định nghĩa 5 câu hỏi chuẩn và câu trả lời chuẩn tương ứng
-BENCHMARK_QUERIES = [
-    {
-        "id": 1,
-        "query": "Vào phiên giao dịch ngày 03/03/2023, chỉ số VN-Index đóng cửa giảm bao nhiêu phần trăm và rổ VN30 có duy nhất mã cổ phiếu nào tăng giá?",
-        "gold_answer": "VN-Index đóng cửa giảm 1,24% và mã cổ phiếu tăng giá duy nhất trong rổ VN30 là PLX (tăng 0,39%)."
-    },
-    {
-        "id": 2,
-        "query": "Panasonic đã đầu tư bao nhiêu USD vào nhà máy mới tại Bình Dương và năng suất dự kiến vào năm 2025 là bao nhiêu?",
-        "gold_answer": "Vốn đầu tư khoảng 45 triệu USD và năng suất dự kiến đạt khoảng 3 triệu sản phẩm vào năm 2025."
-    },
-    {
-        "id": 3,
-        "query": "Bộ Tài chính đề xuất ưu đãi thuế thu nhập doanh nghiệp bao nhiêu phần trăm đối với cơ quan báo chí ngoài báo in?",
-        "gold_answer": "Bộ Tài chính đề xuất thuế suất ưu đãi 15% đối với thu nhập của các cơ quan báo chí ngoài báo in."
-    },
-    {
-        "id": 4,
-        "query": "Theo dự báo của IATA, thị trường hàng không thế giới sẽ phục hồi vượt mức trước dịch vào năm nào?",
-        "gold_answer": "IATA dự báo thị trường hàng không thế giới sẽ phục hồi vượt mức trước dịch Covid-19 vào đầu năm 2024."
-    },
-    {
-        "id": 5,
-        "query": "Khu du lịch quốc gia Ninh Chữ dự kiến đón bao nhiêu lượt khách du lịch và bao nhiêu khách quốc tế vào năm 2030?",
-        "gold_answer": "Dự kiến đón khoảng 6 triệu lượt khách, trong đó khách quốc tế khoảng 1.400.000 lượt vào năm 2030."
-    }
-]
+# 1. Định nghĩa phím từ khóa kiểm định tương ứng với 10 câu hỏi để tự động xác minh kết quả
+KEYWORDS_MAP = {
+    1: ["VGC", "HNX"],
+    2: ["Khánh Hòa", "29"],
+    3: ["Goldman", "2.300"],
+    4: ["hành trình", "an toàn"],
+    5: ["đèo Cả"],
+    6: ["83,5"],
+    7: ["MBV"],
+    8: ["biệt thự", "liền kề"],
+    9: ["Quảng Ngãi", "Đăk Re"],
+    10: ["Cơ sở dữ liệu", "dân cư"]
+}
+
+def parse_benchmark_qa(file_path: str = "data/benchmark_qa.txt") -> list[dict]:
+    """Phân tích file benchmark_qa.txt thành danh sách câu hỏi và câu trả lời chuẩn."""
+    import re
+    if not Path(file_path).exists():
+        print(f"Lỗi: Không tìm thấy file {file_path}!")
+        return []
+        
+    content = Path(file_path).read_text(encoding="utf-8")
+    questions = re.findall(r"Câu hỏi (\d+): (.*?)\nTài liệu đích: (.*?)\nCâu trả lời đúng: (.*?)\n", content)
+    
+    qa_list = []
+    for q_id_str, query, source, gold in questions:
+        q_id = int(q_id_str)
+        qa_list.append({
+            "id": q_id,
+            "query": query.strip(),
+            "gold_answer": gold.strip(),
+            "keywords": KEYWORDS_MAP.get(q_id, [])
+        })
+    return qa_list
+
+BENCHMARK_QUERIES = parse_benchmark_qa()
 
 def load_raw_csv_data(csv_path: str = "data/100_data.csv") -> list[dict]:
     """Đọc dữ liệu thô từ file CSV."""
@@ -110,12 +118,7 @@ def run_experiment(chunk_size: int, embedder):
             preview = res["content"][:100].replace('\n', ' ')
             
             # Kiểm tra xem từ khóa đặc trưng của câu trả lời chuẩn có nằm trong chunk không
-            keywords = []
-            if q_id == 1: keywords = ["PLX", "0,39%"]
-            elif q_id == 2: keywords = ["45 triệu", "3 triệu"]
-            elif q_id == 3: keywords = ["15%", "báo in"]
-            elif q_id == 4: keywords = ["2024"]
-            elif q_id == 5: keywords = ["6 triệu", "1.400.000"]
+            keywords = q_item.get("keywords", [])
             
             match = all(k.lower() in res["content"].lower() for k in keywords)
             status_indicator = "✅ [KHỚP NGỮ CẢNH CHUẨN]" if match else "❌"

@@ -106,7 +106,7 @@ Chạy `ChunkingStrategyComparator().compare()` trên các tài liệu:
 
 | Thành viên | Strategy | Retrieval Score (/10) | Điểm mạnh | Điểm yếu |
 |-----------|----------|----------------------|-----------|----------|
-| Tôi | Recursive (600) | 6.0/10 | Ngắt đoạn tự nhiên, giữ cấu trúc nguyên bản | Không tự gộp các đoạn quá ngắn, gây phân mảnh số liệu |
+| Tôi | Recursive (600) | 7.0/10 | Ngắt đoạn tự nhiên, giữ cấu trúc nguyên bản | Không tự gộp các đoạn quá ngắn, gây phân mảnh số liệu |
 | Nguyễn Văn A | Fixed Size (500) | 4.0/10 | Số lượng chunk và độ dài đồng đều | Phá vỡ câu từ ở ranh giới, gây lỗi tìm kiếm |
 | Trần Thị B | Sentence (max 3) | 8.0/10 | Giữ câu hoàn chỉnh, ngữ cảnh liền mạch | Kích thước các chunk biến động mạnh không đều |
 

@@ -1,0 +1,24 @@
+inhlethanh@MacBook-Pro-cua-Minh Day-07-Lab-Data-Foundations % 🔗 Loading indexed documents from ChromaDB...
+✅ Loaded 40 chunks into memory cache.
+📋 Loaded 10 evaluation queries from benchmark_qa.txt
+
+=====================================================================================
+                      EVALUATING RETRIEVAL CHUNKS (Top-3)
+=====================================================================================
+No.  | Target     | Semantic Rank & Score        | Hybrid Rank & Score
+-------------------------------------------------------------------------------------
+1    | news_1     | Rank 1 (0.599)               | Rank 1 (0.033)
+2    | news_2     | Rank 1 (0.536)               | Rank 1 (0.033)
+3    | news_3     | Rank 1 (0.467)               | Rank 1 (0.033)
+4    | news_4     | Rank 1 (0.620)               | Rank 1 (0.033)
+5    | news_5     | Rank 1 (0.225)               | Rank 1 (0.032)
+6    | news_6     | Rank 1 (0.596)               | Rank 1 (0.033)
+7    | news_7     | Rank 1 (0.521)               | Rank 1 (0.033)
+8    | news_8     | Rank 1 (0.394)               | Rank 1 (0.033)
+9    | news_9     | Rank 1 (0.379)               | Rank 1 (0.032)
+10   | news_10    | Rank 1 (0.543)               | Rank 1 (0.033)
+=====================================================================================
+📊 METRICS SUMMARY (Recall@3 & MRR):
+   
+Total Queries Tested: 10
+Semantic Search  : Recall@3 = 10/10 (100.0%), MRR = 1.000
