@@ -1,7 +1,7 @@
 # Báo Cáo Lab 7: Embedding & Vector Store
 
-**Họ tên:** Nguyễn Tiến Dũng
-**Nhóm:** Nhóm 3 - RAG Investors
+**Họ tên:** Nguyễn Lê Thanh Điệp
+**Nhóm:** Nhóm A2
 **Ngày:** 05/06/2026
 
 ---
