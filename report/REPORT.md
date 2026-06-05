@@ -11,17 +11,17 @@
 ### Cosine Similarity (Ex 1.1)
 
 **High cosine similarity nghĩa là gì?**
-> High cosine similarity (điểm số gần bằng 1.0) nghĩa là hai vector đại diện cho hai văn bản hướng về cùng một phía trong không gian đa chiều ngữ nghĩa. Về mặt thực tế, điều này chỉ ra hai văn bản có sự tương đồng rất lớn về mặt ngữ cảnh, chủ đề hoặc từ vựng, độc lập với độ dài ký tự của chúng.
+> High cosine similarity nghĩa là hai vector đại diện cho hai văn bản hướng về cùng một phía trong không gian đa chiều ngữ nghĩa. Vì hai văn bản có sự tương đồng rất lớn về mặt ngữ cảnh, chủ đề hoặc từ vựng.
 
 **Ví dụ HIGH similarity:**
 - Sentence A: "Lập trình Python rất được ưa chuộng nhờ cú pháp dễ đọc và thư viện phong phú."
 - Sentence B: "Python là một ngôn ngữ lập trình tuyệt vời vì nó đơn giản và sở hữu hệ sinh thái mạnh mẽ."
-- Tại sao tương đồng: Cả hai câu đều chia sẻ chung một luận điểm cốt lõi là ca ngợi các ưu điểm của ngôn ngữ Python (dễ đọc/đơn giản, thư viện phong phú/hệ sinh thái mạnh mẽ).
+- Tại sao tương đồng: Cả hai câu đều chia sẻ một luận điểm cốt lõi là ca ngợi các ưu điểm của ngôn ngữ Python (dễ đọc/đơn giản, thư viện phong phú/hệ sinh thái mạnh mẽ).
 
 **Ví dụ LOW similarity:**
 - Sentence A: "Chỉ số VN-Index hôm nay bốc hơi hơn 15 điểm do lực bán tháo cổ phiếu blue-chips."
 - Sentence B: "Để làm món phở bò truyền thống, bạn cần hầm xương ống tối thiểu trong vòng 8 tiếng."
-- Tại sao khác: Hai câu nói về hai lĩnh vực hoàn toàn xa lạ (thị trường tài chính chứng khoán và công thức nấu ăn ẩm thực).
+- Tại sao khác: Hai câu nói về hai lĩnh vực khác nhau, nên similarity sẽ rất thấp
 
 **Tại sao cosine similarity được ưu tiên hơn Euclidean distance cho text embeddings?**
 > Euclidean distance đo khoảng cách thẳng giữa hai điểm cuối vector nên cực kỳ nhạy cảm với độ dài văn bản (văn bản dài chứa nhiều từ hơn sẽ có độ dài vector lớn hơn, kéo chúng ra xa nhau). Trái lại, Cosine similarity chỉ đo góc giữa hai vector (hướng ngữ nghĩa), loại bỏ hoàn toàn yếu tố độ dài văn bản, giúp so sánh công bằng giữa đoạn văn ngắn và bài viết dài.
