@@ -51,17 +51,17 @@
 **Domain:** Tin tức Kinh tế - Tài chính Việt Nam.
 
 **Tại sao nhóm chọn domain này?**
-`> Tài liệu tin tức kinh tế chứa lượng thông tin số liệu dày đặc (phần trăm biến động, lượng tiền đầu tư, mốc thời gian và các luật định) rất nhạy cảm với độ chính xác. Đây là môi trường hoàn hảo để thử nghiệm khả năng định vị thông tin chuẩn xác của các chiến lược RAG, đồng thời đánh giá hiệu quả lọc dữ liệu dựa trên metadata như thể loại bài báo hay thời gian phát hành.
+> Tài liệu tin tức kinh tế chứa lượng thông tin số liệu dày đặc (phần trăm biến động, lượng tiền đầu tư, mốc thời gian và các luật định) rất nhạy cảm với độ chính xác. Đây là môi trường hoàn hảo để thử nghiệm khả năng định vị thông tin chuẩn xác của các chiến lược RAG, đồng thời đánh giá hiệu quả lọc dữ liệu dựa trên metadata như thể loại bài báo hay thời gian phát hành.
 
-### Data Inventory
+### Data Inventory (Mẫu 5 tài liệu tiêu biểu trong bộ dữ liệu)
 
 | # | Tên tài liệu | Nguồn | Số ký tự | Metadata đã gán |
 |---|--------------|-------|----------|-----------------|
-| 1 | Hàng về tranh bán, thị trường chìm trong sắc đỏ... | vneconomy.vn | 1,840 | `{"category": "Chứng khoán", "time": "2023-03-03"}` |
-| 2 | Bộ Tài chính lấy ý kiến đề xuất ưu đãi thuế TN doanh nghiệp | vneconomy.vn | 1,780 | `{"category": "Tài chính", "time": "2024-06-13"}` |
-| 3 | Panasonic khai trương nhà máy thiết bị chất lượng không khí | baodautu.vn | 1,410 | `{"category": "Doanh nghiệp", "time": "2021-09-30"}` |
-| 4 | “Dư âm” từ đại dịch kéo dài, các hãng hàng không phục hồi... | vneconomy.vn | 4,520 | `{"category": "Đầu tư", "time": "2022-09-19"}` |
-| 5 | Ven biển Ninh Thuận trở thành vùng du lịch trọng điểm | vneconomy.vn | 1,120 | `{"category": "Bất động sản", "time": "2022-02-25"}` |
+| 1 | Cổ phiếu VGC của Viglacera tăng nhẹ phiên chào sàn HNX | baodautu.vn | 2,999 | `{"category": "Doanh nghiệp", "time": "2016-12-22"}` |
+| 2 | Khánh Hòa rà soát lại tiến độ thực hiện các dự án trên địa bàn tỉnh | vneconomy.vn | 2,777 | `{"category": "Bất động sản", "time": "2021-12-15"}` |
+| 3 | Vàng có thể phá ngưỡng hỗ trợ 1.800 USD/ounce | baodautu.vn | 2,782 | `{"category": "Ngân hàng - Bảo hiểm", "time": "2020-11-27"}` |
+| 4 | Thúc tiến độ lắp camera trên xe kinh doanh vận tải... | vneconomy.vn | 2,744 | `{"category": "Đầu tư", "time": "2021-09-15"}` |
+| 5 | Đầu tư hạ tầng giao thông Đèo Cả đăng ký niêm yết trên HOSE | baodautu.vn | 2,859 | `{"category": "Chứng khoán", "time": "2021-05-28"}` |
 
 ### Metadata Schema
 
@@ -77,13 +77,13 @@
 
 ### Baseline Analysis
 
-Chạy `ChunkingStrategyComparator().compare()` trên các tài liệu:
+Chạy `ChunkingStrategyComparator().compare()` trên tài liệu đầu tiên (**Viglacera**):
 
 | Tài liệu | Strategy | Chunk Count | Avg Length | Preserves Context? |
 |-----------|----------|-------------|------------|-------------------|
-| Panasonic | FixedSizeChunker (`fixed_size`) | 4 | 352 | Trung bình (cắt ngang từ tại điểm cuối của chunk) |
-| Panasonic | SentenceChunker (`by_sentences`) | 2 | 705 | Tốt (ngắt câu hoàn chỉnh, giữ nguyên ngữ cảnh câu) |
-| Panasonic | RecursiveChunker (`recursive`) | 3 | 470 | Rất tốt (cắt theo dấu xuống dòng kép và phân đoạn tự nhiên) |
+| Viglacera | FixedSizeChunker (`fixed_size` - 600) | 6 | 541.50 | Trung bình (cắt ngang từ tại điểm cuối của chunk) |
+| Viglacera | SentenceChunker (`by_sentences`) | 7 | 427.57 | Tốt (ngắt câu hoàn chỉnh, giữ nguyên ngữ cảnh câu) |
+| Viglacera | RecursiveChunker (`recursive` - 600) | 13 | 229.77 | Rất tốt (cắt theo dấu xuống dòng kép và phân đoạn tự nhiên) |
 
 ### Strategy Của Tôi
 
@@ -98,9 +98,9 @@ Chạy `ChunkingStrategyComparator().compare()` trên các tài liệu:
 ### So Sánh: Strategy của tôi vs Baseline
 
 | Tài liệu | Strategy | Chunk Count | Avg Length | Retrieval Quality? |
-|-----------|----------|-------------|------------|--------------------|
-| Panasonic | Best Baseline (`by_sentences`) | 2 | 705 | Tốt (truy xuất được câu trọn vẹn) |
-| Panasonic | **của tôi** (`recursive` - 600) | 3 | 470 | Rất tốt (định vị đúng đoạn chứa thông tin kinh tế) |
+|-----------|----------|-------------|------------|-------------------|
+| Viglacera | Best Baseline (`by_sentences`) | 7 | 427.57 | Tốt (truy xuất được câu trọn vẹn) |
+| Viglacera | **của tôi** (`recursive` - 600) | 13 | 229.77 | Rất tốt (định vị đúng đoạn chứa thông tin kinh tế) |
 
 ### So Sánh Với Thành Viên Khác
 
@@ -112,8 +112,6 @@ Chạy `ChunkingStrategyComparator().compare()` trên các tài liệu:
 
 **Strategy nào tốt nhất cho domain này? Tại sao?**
 > Chiến lược **Sentence-based** kết hợp gộp đoạn (Merging) là tốt nhất. Đối với tin tức kinh tế nhiều số liệu, việc giữ các câu nguyên vẹn và liên kết chúng lại trong một cửa sổ trượt đảm bảo các số liệu bổ trợ (ví dụ: tên công ty + số tiền đầu tư) không bị tách sang 2 chunk riêng biệt.
-
----
 
 ## 4. My Approach — Cá nhân (10 điểm)
 
