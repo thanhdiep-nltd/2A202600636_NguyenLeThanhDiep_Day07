@@ -212,29 +212,58 @@ tests/test_solution.py::TestEmbeddingStoreDeleteDocument::test_delete_returns_tr
 
 | # | Query | Gold Answer |
 |---|-------|-------------|
-| 1 | Vào phiên giao dịch ngày 03/03/2023, chỉ số VN-Index đóng cửa giảm bao nhiêu phần trăm và rổ VN30 có duy nhất mã cổ phiếu nào tăng giá? | VN-Index đóng cửa giảm 1,24% và mã cổ phiếu tăng giá duy nhất trong rổ VN30 là PLX (tăng 0,39%). |
-| 2 | Panasonic đã đầu tư bao nhiêu USD vào nhà máy mới tại Bình Dương và năng suất dự kiến vào năm 2025 là bao nhiêu? | Vốn đầu tư khoảng 45 triệu USD và năng suất dự kiến đạt khoảng 3 triệu sản phẩm vào năm 2025. |
-| 3 | Bộ Tài chính đề xuất ưu đãi thuế thu nhập doanh nghiệp bao nhiêu phần trăm đối với cơ quan báo chí ngoài báo in? | Bộ Tài chính đề xuất thuế suất ưu đãi 15% đối với thu nhập của các cơ quan báo chí ngoài báo in. |
-| 4 | Theo dự báo của IATA, thị trường hàng không thế giới sẽ phục hồi vượt mức trước dịch vào năm nào? | IATA dự báo thị trường hàng không thế giới sẽ phục hồi vượt mức trước dịch Covid-19 vào đầu năm 2024. |
-| 5 | Khu du lịch quốc gia Ninh Chữ dự kiến đón bao nhiêu lượt khách du lịch và bao nhiêu khách quốc tế vào năm 2030? | Dự kiến đón khoảng 6 triệu lượt khách, trong đó khách quốc tế khoảng 1.400.000 lượt vào năm 2030. |
+| 1 | Cổ phiếu VGC của Viglacera niêm yết trên sàn giao dịch nào? | Cổ phiếu VGC chính thức niêm yết trên sàn HNX (Sở Giao dịch Chứng khoán Hà Nội). |
+| 2 | Tỉnh Khánh Hòa rà soát lại tiền thực hiện các dự án nào? | Khánh Hòa rà soát tiến độ 29 dự án, phát hiện 13 dự án đang tạm dừng triển khai do vướng mắc về quy hoạch; hoàn thành 3 dự án và thu hồi/hủy thông báo cho phép đầu tư đối với 4 dự án (Khu biệt thự và du lịch Đồng Bé, Làng biệt thự Tâm Hương, Khu vườn tượng đá nghệ thuật Nha Trang, Bệnh viện đa khoa quốc tế Nha Trang). |
+| 3 | Goldman Sachs dự báo giá vàng đạt bao nhiêu USD mỗi ounce? | Goldman Sachs dự báo giá vàng năm 2021 sẽ đạt mức 2.300 USD/ounce. |
+| 4 | Lợi ích của việc lắp camera giám sát trên xe kinh doanh vận tải là gì? | Lợi ích là nâng cao hiệu quả quản lý hành trình của đơn vị kinh doanh vận tải, bảo đảm trật tự an toàn giao thông và hỗ trợ đắc lực cho công tác điều tra, giải quyết tai nạn của cơ quan Công an. |
+| 5 | Đường cao tốc nào được khánh thành kỷ niệm ngày truyền thống GTVT? | Dự án hầm đường bộ qua đèo Cả / đường cao tốc hạ tầng giao thông Đèo Cả (HHV). |
+| 6 | Giá trị giao dịch bất động sản khu vực châu Thái Bình Dương là bao nhiêu tỷ USD? | Đạt 83,5 tỷ USD trong 6 tháng đầu năm 2021 (tăng 39% so với cùng kỳ năm 2020). |
+| 7 | MBV ra mắt dịch vụ hay sản phẩm mới nào cho khách hàng? | MBV ra mắt diện mạo nhận diện thương hiệu mới cùng cam kết chuyển đổi số để mang lại những trải nghiệm tài chính số ưu việt cho khách hàng. |
+| 8 | Thị trường bất động sản Hà Nội phân khúc nào đang nóng nhất? | Phân khúc biệt thự và nhà ở liền kề có vị trí tốt, giao thông thuận lợi, nằm trong khuôn viên xanh - sạch - đẹp. |
+| 9 | Lũ quét gây sự cố trên công trình thủy điện xanh tại tỉnh nào? | Xảy ra tại tỉnh Quảng Ngãi (Công trình thủy điện Đăk Re). |
+| 10 | Bộ Thông tin truyền thông đề xuất giải pháp nào để giải quyết tình trạng SIM rác? | Đề xuất thực hiện kết nối thông tin thuê bao với Cơ sở dữ liệu quốc gia về dân cư nhằm đối soát, xác thực chuẩn thông tin thuê bao. |
 
-### Kết Quả Của Tôi
+### Kết Quả Của Tôi (Chạy bằng `run_benchmark_eval.py`)
 
-| # | Query | Top-1 Retrieved Chunk (tóm tắt) | Score | Relevant? | Agent Answer (tóm tắt) |
-|---|-------|--------------------------------|-------|-----------|------------------------|
-| 1 | Vào phiên 03/03/2023... | "Các chỉ số đều thể hiện một nhịp phục hồi khá nhanh..." | 0.6987 | Một phần | VN-Index đóng cửa giảm 1,24% nhưng không lấy được mã PLX. |
-| 2 | Panasonic Bình Dương... | "Nhà máy mới được xây dựng tại tỉnh Bình Dương..." | 0.6158 | Một phần | Panasonic đầu tư 45 triệu USD nhưng thiếu năng suất 2025. |
-| 3 | Ưu đãi thuế báo chí... | "Đáng chú ý, dự thảo bổ sung áp thuế suất ưu đãi 15%..." | 0.7405 | Có | Đề xuất áp dụng mức thuế suất ưu đãi 15% ngoài báo in. |
-| 4 | Dự báo phục hồi IATA... | "IATA dự báo hàng không sẽ phục hồi vượt mức..." | 0.7119 | Có | Thị trường hàng không sẽ phục hồi vào đầu năm 2024. |
-| 5 | Khách du lịch Ninh Chữ...| "Đón khoảng 6 triệu lượt khách (quốc tế 1.400.000)..." | 0.7780 | Có | Đón 6 triệu khách và 1.400.000 khách quốc tế năm 2030. |
+| # | Query | Trạng thái | Score Max | Tiêu đề bài báo liên quan nhất (Top-1) | Relevant? |
+|---|-------|------------|-----------|----------------------------------------|-----------|
+| 1 | Cổ phiếu VGC của Viglacera niêm yết trên sàn giao dịch nào? | PASSED ✅ | 0.4621 | Cổ phiếu VGC của Viglacera tăng nhẹ phiên chào sàn HNX | Có |
+| 2 | Tỉnh Khánh Hòa rà soát lại tiền thực hiện các dự án nào? | PASSED ✅ | 0.3231 | Khánh Hòa rà soát lại tiến độ thực hiện các dự án trên địa bàn tỉnh | Có |
+| 3 | Goldman Sachs dự báo giá vàng đạt bao nhiêu USD mỗi ounce? | PASSED ✅ | 0.3996 | Vàng có thể phá ngưỡng hỗ trợ 1.800 USD/ounce | Có |
+| 4 | Lợi ích của việc lắp camera giám sát trên xe kinh doanh vận tải là gì? | FAILED ❌ | 0.5742 | Thúc tiến độ lắp camera trên xe kinh doanh vận tải, hoàn thành trước ngày 31/12/2021 | Có |
+| 5 | Đường cao tốc nào được khánh thành kỷ niệm ngày truyền thống GTVT? | FAILED ❌ | -0.2142 | Đầu tư gần 5.390 tỷ đồng cho tuyến đường song hành Vành đai 4 - Vùng Thủ đô | Không |
+| 6 | Giá trị giao dịch bất động sản khu vực châu Thái Bình Dương là bao nhiêu tỷ USD? | PASSED ✅ | 0.0550 | Giá trị giao dịch bất động sản châu Á -Thái Bình Dương 6 tháng đạt 83,5 tỷ USD | Có |
+| 7 | MBV ra mắt dịch vụ hay sản phẩm mới nào cho khách hàng? | PASSED ✅ | 0.1951 | MBV ra mắt diện mạo mới: Dấu ấn hiện đại và kết nối | Có |
+| 8 | Thị trường bất động sản Hà Nội phân khúc nào đang nóng nhất? | PASSED ✅ | 0.1715 | Thị trường bất động sản thấp tầng Hà Nội: Lăng kính từ một dự án | Có |
+| 9 | Lũ quét gây sự cố trên công trình thủy điện xanh tại tỉnh nào? | FAILED ❌ | 0.0623 | 3 tỉnh, thành phố đã cơ bản được cấp điện trở lại | Không |
+| 10 | Bộ Thông tin truyền thông đề xuất giải pháp nào để giải quyết tình trạng SIM rác? | PASSED ✅ | 0.2563 | Giải quyết dứt điểm tình trạng sử dụng SIM rác, SIM nặc danh | Có |
 
-**Bao nhiêu queries trả về chunk relevant trong top-3?** 3 / 5
-
-*Giải thích lý do Q1 và Q2 bị lỗi:* Do thuật toán ngắt dòng đệ quy ngắt theo các đoạn văn `\n\n` tự nhiên. Khi mỗi đoạn văn ngắn hơn kích thước chunk giới hạn, chúng được lưu trữ độc lập mà không có bước gộp lại. Vì thông tin câu trả lời chuẩn của Q1 và Q2 phân mảnh nằm ở 2 đoạn văn liền kề nhau, kết quả trả về không thể chứa đồng thời cả hai thông tin này trong một chunk đơn lẻ.
+**TỔNG HỢP KẾT QUẢ ĐÁNH GIÁ CHẤT LƯỢNG:**
+- **Số câu hỏi vượt qua (Top-3 chứa ngữ cảnh đúng và đủ từ khóa):** 7/10
+- **Tỷ lệ chính xác retrieval (Accuracy):** 70.0%
 
 ---
 
 ## 7. What I Learned (5 điểm — Demo)
+
+### Phân tích nguyên nhân lỗi (Failure Analysis)
+
+Từ 3 trường hợp thất bại (FAILED ❌) ở trên, chúng ta rút ra các nguyên nhân chính sau:
+
+1. **Lỗi xác thực từ khóa kiểm tra (Query 4 - Lắp camera giám sát):**
+   - *Triệu chứng:* RAG hệ thống đã tìm được chunk đầu tiên hoàn toàn chính xác từ bài báo mục tiêu ("Thúc tiến độ lắp camera trên xe kinh doanh vận tải...") với score rất cao (`0.5742`). Tuy nhiên, câu này bị đánh giá là **FAILED ❌**.
+   - *Nguyên nhân:* Bộ kiểm định `KEYWORDS_MAP` định nghĩa từ khóa là `["hành trình", "an toàn"]` dựa trên câu trả lời chuẩn (Gold Answer). Nhưng thực tế trong văn bản gốc bài báo, câu nói về lợi ích chỉ ghi là *"...giám sát được trạng thái của lái xe, như việc lái xe nghe điện thoại, mất tập trung và các hành vi gây mất an toàn giao thông khác"* mà không chứa từ *"hành trình"*. Do đó, việc so khớp từ khóa bị fail mặc dù retrieval đã đúng chunk liên quan.
+   - *Đề xuất cải thiện:* Cần tinh chỉnh bộ từ khóa kiểm thử (ground truth keywords) bám sát văn bản gốc thay vì bám hoàn toàn vào câu trả lời tự viết của con người.
+
+2. **Lỗi thiếu thông tin trong tài liệu nguồn (Query 5 & Query 9):**
+   - *Triệu chứng:* Hệ thống trả về các văn bản hoàn toàn không liên quan (ví dụ: truy vấn cao tốc đèo Cả lại ra Vành đai 4 / EVN; truy vấn thủy điện xanh lại ra thông tin khắc phục lưới điện sau bão).
+   - *Nguyên nhân:* Khi kiểm tra kỹ nội dung của bài báo gốc `doc_4` ("Đầu tư hạ tầng giao thông Đèo Cả đăng ký niêm yết trên HOSE") và `doc_8` ("Nước rút trên công trình thủy điện 'xanh' tại Quảng Ngãi") trong cơ sở dữ liệu `100_data.csv`, ta nhận thấy:
+     - Bài báo Đèo Cả hoàn toàn nói về việc đăng ký niêm yết cổ phiếu HHV lên sàn HOSE, kế hoạch tăng vốn và doanh thu thu phí, không hề có cụm từ hay thông tin nào nói về việc *"khánh thành kỷ niệm ngày truyền thống GTVT"*.
+     - Bài báo Thủy điện Đăk Re chỉ tập trung nói về biện pháp thi công đào hầm tối ưu để giữ rừng và không phải di dời dân, hoàn toàn không có thông tin nào về việc *"Lũ quét gây sự cố"*.
+   - Do đó, đây là các câu hỏi nằm ngoài phạm vi thông tin có sẵn trong tài liệu nguồn (Out-of-document queries). Embeddings mô hình không thể tìm thấy sự tương đồng ngữ nghĩa thực tế, dẫn đến việc lấy các chunk khác có độ tương đồng nhiễu lớn nhất nhưng điểm số cực kỳ thấp (thậm chí âm `-0.2142`).
+   - *Đề xuất cải thiện:* Bổ sung dữ liệu nguồn đầy đủ hoặc xây dựng cơ chế phát hiện câu hỏi không có câu trả lời (Unanswerable query detection) khi mức độ tương đồng tối đa nằm dưới một ngưỡng cut-off (ví dụ: < 0.15).
+
+### Bài học kinh nghiệm
 
 **Điều hay nhất tôi học được từ thành viên khác trong nhóm:**
 > Tôi học được rằng việc tăng kích thước `overlap` trong chiến lược Sentence-based đóng vai trò cực kỳ quan trọng đối với các câu hỏi so sánh số liệu hoặc cần liên kết thông tin giữa các câu văn liên tiếp.
