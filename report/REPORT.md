@@ -271,7 +271,7 @@ Từ 3 trường hợp thất bại (FAILED ❌) ở trên, chúng ta rút ra c�
 ### Bài học kinh nghiệm
 
 **Điều hay nhất tôi học được từ thành viên khác trong nhóm:**
-> Tôi học hỏi được rất nhiều từ giải pháp **Hybrid Search (Semantic + BM25)** của bạn **Lê Anh Minh**. Việc kết hợp tìm kiếm ngữ nghĩa sâu (vector search) cùng khả năng lọc từ khóa chính xác tuyệt đối (keyword search) không chỉ giải quyết triệt để vấn đề truy tìm các thực thể, con số kinh tế đặc thù mà còn giúp tối ưu hóa Recall@3 đạt mức tuyệt đối 100% trong thực tế. Đây là bài học đắt giá về việc phối hợp linh hoạt các công nghệ thay vì phụ thuộc vào một phương thức đơn lẻ.
+> Tôi học hỏi được rất nhiều từ giải pháp **Hybrid Search (Semantic + BM25)** của bạn **Lê Thanh Minh**. Việc kết hợp tìm kiếm ngữ nghĩa sâu (vector search) cùng khả năng lọc từ khóa chính xác (keyword search) không chỉ giải quyết triệt để vấn đề truy tìm các thực thể, con số kinh tế đặc thù mà còn giúp tối ưu hóa Recall@3 đạt mức tuyệt đối 100% trong thực tế. Đây là bài học đắt giá về việc phối hợp linh hoạt các công nghệ thay vì phụ thuộc vào một phương thức đơn lẻ.
 
 **Điều hay nhất tôi học được từ nhóm khác (qua demo):**
 > Nhóm bạn đã trình bày giải pháp tự động sinh và đánh giá câu hỏi benchmark bằng LLM (LLM-as-a-judge), điều này giúp tiết kiệm rất nhiều công sức so với việc nhóm tự biên soạn và đánh giá kết quả thủ công.
